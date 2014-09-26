@@ -1,0 +1,42 @@
+@extends('layout.base')
+@section('content')
+	<div class='form-container'>
+		{{ Form::open(array("URL::route('post-add-post')")) }}
+		<div class="form-header">
+			<h2>Add a Comment</h2>
+		</div>
+
+		<div class="fields"> 
+			{{ Form::label('email', 'E-Mail Address') }}
+			{{ Form::text('email') }}
+
+			@if($errors->has('email'))
+				<p class="error">{{ $errors->first('email') }}</p>
+			@endif
+		</div>	
+		<div class="fields"> 
+			{{ Form::label('title', 'Title') }}
+			{{ Form::text('title') }}
+			@if($errors->has('title'))
+				<p class="error">{{ $errors->first('title') }}</p>
+			@endif
+		</div>	
+		<div class="fields"> 
+			{{ Form::label('description', 'Description') }}
+			{{ Form::text('description') }}
+			@if($errors->has('description'))
+				<p class="error">{{ $errors->first('description') }}</p>
+			@endif
+		</div>	
+		<div class="fields"> 
+			<label>&nbsp;</label>
+			{{ Form::submit('Submit',array('class'=>'button')) }}
+		</div>			
+		{{ Form::close()}}
+	</div>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		//alert("working");
+	});
+	</script>
+@stop

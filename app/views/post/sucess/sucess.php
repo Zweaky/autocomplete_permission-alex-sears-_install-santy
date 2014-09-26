@@ -1,0 +1,1 @@
+   <center><bold> Thankyou for Registering with Us </bold></center>

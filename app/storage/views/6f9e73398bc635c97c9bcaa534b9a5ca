@@ -1,0 +1,8 @@
+home page
+
+<?php if(Auth::check()): ?>
+    
+    bfggfh
+<?php else: ?>
+   dfgdfg
+<?php endif; ?>

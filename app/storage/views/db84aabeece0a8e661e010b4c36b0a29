@@ -1,0 +1,38 @@
+<?php $__env->startSection('main'); ?>
+<h1>Create Bookdddddd</h1>
+<?php echo Form::open(array('route' => 'teacher.store')); ?>
+
+<ul>
+     <li>
+        <?php echo Form::label('Student ID', 'Student ID:'); ?>
+
+        <?php echo Form::text('id'); ?>
+
+    </li>
+    <li>
+        <?php echo Form::label('Name', 'Name:'); ?>
+
+        <?php echo Form::text('susername'); ?>
+
+    </li>
+    <li>
+        <?php echo Form::label('ClassTeacher', 'ClassTeacher:'); ?>
+
+        <?php echo Form::text('ClassTeacher'); ?>
+
+    </li>
+    <li>
+        <?php echo Form::submit('Save', array('class' => 'btn btn-primary')); ?>
+
+    </li>
+</ul>
+<?php echo Form::close(); ?>
+
+<?php if($errors->any()): ?>
+<ul>
+    <?php echo implode('', $errors->all('<li class="error">:message</li>')); ?>
+
+</ul>
+<?php endif; ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('teacher.student', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

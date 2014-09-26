@@ -1,0 +1,60 @@
+ 
+
+<?php $__env->startSection('main'); ?>
+<h1>Edit Book</h1>
+ 
+<?php echo Form::model($book, array('method' => 'PATCH', 
+'route' =>array('student.update', $book->id))); ?>
+
+<ul>
+    <li>
+        <?php echo Form::label('studentName', 'studentName:'); ?>
+
+        <?php echo Form::text('sname'); ?>
+
+    </li>
+    <li>
+        <?php echo Form::label('FatherName', 'FatherName:'); ?>
+
+        <?php echo Form::text('sfathername'); ?>
+
+    </li>
+    <li>
+        <?php echo Form::label('Class', 'Class:'); ?>
+
+        <?php echo Form::text('sclass'); ?>
+
+    </li>
+    <li>
+        <?php echo Form::label('Sex', 'Sex:'); ?>
+
+        <?php echo Form::text('ssex'); ?>
+
+    </li>
+    <li>
+        <?php echo Form::label('Language', 'Language'); ?>
+
+        <?php echo Form::select('language', array('0' => 
+          'Select a Level', '1' => 'English', '2' => 'Spanish'), 
+           null, array('class' => 'form-control')); ?>
+
+    </li>
+    <li>
+        <?php echo Form::submit('Update', array('class' => 
+                 'btn btn-warning')); ?>
+
+        <?php echo link_to_route('student.show', 'Cancel', $book->
+                  id,array('class' => 'btn btn-danger')); ?>
+
+    </li>
+</ul>
+<?php echo Form::close(); ?>
+
+<?php if($errors->any()): ?>
+<ul>
+    <?php echo implode('',$errors->all('<li class="error">:message</li>')); ?>
+
+</ul>
+<?php endif; ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('student.student', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

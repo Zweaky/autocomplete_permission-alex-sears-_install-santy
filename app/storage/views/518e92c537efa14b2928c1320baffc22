@@ -1,0 +1,52 @@
+<?php $__env->startSection('main'); ?>
+<h1><center>Welcome to Student Details </center></h1>
+<p><?php echo link_to_route('student.create', 'Create new book'); ?></p>
+<?php if($booksList->count()): ?>
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+       
+        <th>Id</th>
+        <th>StudentName</th>
+        <th>StudentFatherName</th>
+        <th>Class</th>
+        <th>Sex</th>
+        <th>Language</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <?php foreach($booksList as $book): ?>
+    <tr>
+      <td><?php echo $book->id; ?></td>
+      <td><?php echo $book->sname; ?></td>
+      <td><?php echo $book->sfathername; ?></td>
+      <td><?php echo $book->sclass; ?></td>
+      <td><?php echo $book->ssex; ?></td>
+      <td><?php if($book->language==1): ?><?php echo 'Malayalam'; ?> <?php else: ?><?php echo 'English'; ?>
+
+                <?php endif; ?></td>
+
+      <!-- <td><?php echo link_to_route('student.show', 'Read', array($book->id),
+                array('class' => 'btn btn-primary')); ?></td> -->
+      <td><?php echo link_to_route('student.edit', 'Update', array($book->id),
+                array('class' => 'btn btn-warning')); ?></td>
+      <td>
+        <?php echo Form::open(array('method'=> 'DELETE', 'route' =>
+              array('student.destroy', $book->id))); ?>
+
+        <?php echo Form::submit('Delete', array('class' => 'btn btn-danger')); ?>
+
+        <?php echo Form::close(); ?>
+
+      </td>
+      
+    </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+<?php else: ?>
+There are no books
+<?php endif; ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('student/student', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

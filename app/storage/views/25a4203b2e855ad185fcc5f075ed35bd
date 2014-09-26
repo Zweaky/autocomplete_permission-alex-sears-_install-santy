@@ -1,0 +1,53 @@
+<?php $__env->startSection('content'); ?>
+	<div class='form-container'>
+		<?php echo Form::open(array("URL::route('post-add-register')")); ?>
+
+		<div class="form-header">
+			<h2>Teacher Register</h2>
+		</div>
+
+		<div class="fields"> 
+			<?php echo Form::label('email', 'E-Mail Address'); ?>
+
+			<?php echo Form::text('email'); ?>
+
+
+			<?php if($errors->has('email')): ?>
+				<p class="error"><?php echo $errors->first('email'); ?></p>
+			<?php endif; ?>
+		</div>	
+		<div class="fields"> 
+			<?php echo Form::label('username', 'username'); ?>
+
+			<?php echo Form::text('username'); ?>
+
+			<?php if($errors->has('username')): ?>
+				<p class="error"><?php echo $errors->first('username'); ?></p>
+			<?php endif; ?>
+		</div>	
+		<div class="fields"> 
+			<?php echo Form::label('password', 'password'); ?>
+
+			<?php echo Form::text('password'); ?>
+
+			<?php if($errors->has('password')): ?>
+				<p class="error"><?php echo $errors->first('password'); ?></p>
+			<?php endif; ?>
+		</div>
+			
+		<div class="fields"> 
+			<label>&nbsp;</label>
+			<?php echo Form::submit('Submit',array('class'=>'button')); ?>
+
+		</div>			
+		<?php echo Form::close(); ?>
+
+	</div>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		//alert("working");
+	});
+	</script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

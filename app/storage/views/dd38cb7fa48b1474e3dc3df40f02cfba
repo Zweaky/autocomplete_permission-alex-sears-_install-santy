@@ -1,0 +1,37 @@
+<?php $__env->startSection('content'); ?>
+	<?php echo Form::open(array('url' => 'login')); ?>
+
+		<h1>Login</h1>
+
+		<!-- if there are login errors, show them here -->
+		<?php if(Session::get('loginError')): ?>
+		<div class="alert alert-danger"><?php echo Session::get('loginError'); ?></div>
+		<?php endif; ?>
+
+		<p>
+			<?php echo $errors->first('username'); ?>
+
+			<?php echo $errors->first('password'); ?>
+
+		</p>
+
+		<p>
+			<?php echo Form::label('username', 'username'); ?>
+
+			<?php echo Form::text('username'); ?>
+
+		</p>
+
+		<p>
+			<?php echo Form::label('password', 'Password'); ?>
+
+			<?php echo Form::password('password'); ?>
+
+		</p>
+
+		<p><?php echo Form::submit('Submit!'); ?></p>
+	<?php echo Form::close(); ?>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

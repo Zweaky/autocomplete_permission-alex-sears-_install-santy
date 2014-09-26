@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+      <?php echo HTML::style('master/syl.css'); ?>
+
+		
+	</head>
+	<body>
+		<div id="wrapper">
+			<header>
+				<?php echo $__env->make('header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</header>
+			<div id="content">
+				<div id="global">
+					 <div id="header-wrapper">
+                   <div id="header">
+					<?php if(Session::has('global')): ?>
+						<p><?php echo Session::get('global'); ?></p>
+					<?php endif; ?>
+				</div>
+				<?php echo $__env->yieldContent('content'); ?>
+			</div>
+			<footer>
+			<?php echo $__env->make('footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</footer>
+		</div>
+	</body>
+</html>

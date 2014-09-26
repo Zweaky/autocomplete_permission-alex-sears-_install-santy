@@ -1,0 +1,29 @@
+
+
+
+    
+  <html>
+<head>
+
+	<?php echo HTML::style('master/syl.css'); ?>
+
+<body>
+<div id="menu-wrapper">
+	<div id="menu">
+		<ul>
+			
+			 
+			<li><?php echo HTML::link('project', 'project'); ?></li> 
+			
+			 <?php if(Auth::check()): ?>
+    <li>Now login <?php echo HTML::link('logout', 'Logout (' . Auth::user()->username . ')'); ?></li>
+<?php else: ?>
+   
+  <li><?php echo HTML::link('/', 'login'); ?></li> 
+<?php endif; ?>
+			<li><a href="<?php echo URL::route('post-add-register'); ?>">Register</a></li>
+		</div>
+	<!-- end #menu --> 
+</div>
+ 
+<div id="banner"><a href="#"><?php echo HTML::image('master/images/url.jpg','samp',array('height'=>300,'width'=>1200)); ?></a></div>
