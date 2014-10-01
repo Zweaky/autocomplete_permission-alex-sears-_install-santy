@@ -54,6 +54,15 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
+Route::filter('editable', function()
+{
+    $user = Auth::user();
+ 
+    if (!$user->ability(['Admin'], ['can_edit']))
+    {
+        //return Redirect::home();
+    }
+});
 /*
 |--------------------------------------------------------------------------
 | Guest Filter
@@ -68,8 +77,9 @@ Route::filter('auth.basic', function()
 Route::filter('guest', function()
 {
 	//if (Auth::check()) return Redirect::to('/');
-	  if (Auth::check()) 
-                return Redirect::route('home')->with('global', 'You are already logged in!');
+	  if (!Auth::check()) 
+                //return Redirect::route('master')->with('global', 'You are already logged in!');
+	  	return View::make('master');
 });
 
 /*

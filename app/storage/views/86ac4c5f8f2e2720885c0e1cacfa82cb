@@ -13,7 +13,7 @@
 		<ul>
 			
 			 
-			<li><?php echo HTML::link('project', 'project'); ?></li> 
+			 
 			
 			 <?php if(Auth::check()): ?>
     <li>Now login <?php echo HTML::link('logout', 'Logout (' . Auth::user()->username . ')'); ?></li>

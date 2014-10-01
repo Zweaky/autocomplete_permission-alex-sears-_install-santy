@@ -121,7 +121,9 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-         'Way\Generators\GeneratorsServiceProvider'         
+         'Way\Generators\GeneratorsServiceProvider',
+         'Zizaco\Entrust\EntrustServiceProvider',
+         'Cartalyst\Sentry\SentryServiceProvider'         
 
 	),
 
@@ -189,6 +191,8 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
+                'Entrust'    => 'Zizaco\Entrust\EntrustFacade',
+                'Sentry' => 'Cartalyst\Sentry\Facades\Laravel\Sentry'
 
 	),
 

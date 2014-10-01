@@ -8,6 +8,10 @@ class TeacherController extends BaseController
 	 *
 	 * @return Response
 	 */
+  public function __construct()
+  {
+    $this->beforefilter('guest');
+  }
 	public function index()
 	{
 		//

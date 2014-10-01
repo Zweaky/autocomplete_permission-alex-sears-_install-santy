@@ -70,7 +70,7 @@ class HomeController extends BaseController {
 				//echo 'SUCCESS!';
 				// return Redirect::to('master');
 				//->with('global','Login Error!')
-				return Redirect::to('master');
+				return Redirect::to('secret');
                    //return "ok";
 			} else {
 

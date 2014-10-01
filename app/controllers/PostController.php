@@ -10,7 +10,10 @@ class PostController extends BaseController{
 
 		return View::make('master');
 	}
-
+   public function getreg()
+   {
+   	return View::make('post.reg');
+   }
 	//post action for the add
 	public function postAdd(){
 		//make the validator
